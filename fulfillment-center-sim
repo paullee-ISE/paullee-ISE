@@ -1,0 +1,128 @@
+# 📦 Fulfillment Center Simulation — Paul Lee
+
+This is a simulation of a simplified Amazon-style fulfillment system, built to model how operational changes—such as labor allocation, SKU variation, and throughput balancing—impact efficiency under different demand scenarios.
+
+This project mirrors real-world system design thinking used at Amazon, Microsoft, and other logistics-driven companies. It includes scenario modeling, cross-training impact, SKU complexity, surge demand, and cost-benefit tradeoffs.
+
+---
+
+## 📌 System Overview
+
+We are modeling a basic fulfillment pipeline:  
+**Order Received → Pick Item → Pack Item → Ship Item**
+
+Our goal: **maximize throughput while minimizing idle labor and system congestion.**
+
+---
+
+## 🔧 Roles & Time Estimates
+
+| Step     | Time per Unit | Worker | Load Complexity      |
+|----------|----------------|--------|-----------------------|
+| Picking  | 3 mins         | A      | High (varied SKUs)    |
+| Packing  | 2 mins         | B      | Moderate              |
+| Shipping | 1 min          | C      | Low (automated belt)  |
+
+🟥 **Identified bottleneck: Picking**
+
+---
+
+## ⚠️ Surge Scenario (Flash Sale Simulation)
+
+> - Baseline: 10 orders / 10 mins  
+> - Surge: 30 orders / 10 mins  
+
+📉 Result: Backlog at Picking → Idle time at Packing and Shipping → Throughput drops
+
+---
+
+## ✅ Optimization 1: Cross-Train Worker B
+
+| Step     | Time per Unit | Notes                             |
+|----------|----------------|-----------------------------------|
+| Picking  | 2.3 mins       | B assists A during surge          |
+| Packing  | 2.2 mins       | Slight delay due to task split    |
+| Shipping | 1 min          | No change                         |
+
+🟢 **Result: ~12% throughput gain at zero cost**
+
+---
+
+## 📦 Optimization 2: SKU Complexity
+
+| SKU Class   | % Volume | Pick Time | Pack Time |
+|-------------|----------|-----------|-----------|
+| Small (USB) | 50%      | 1.5 min   | 1 min     |
+| Medium      | 35%      | 3.0 min   | 2 min     |
+| Large (TV)  | 15%      | 6.0 min   | 3.5 min   |
+
+📌 **Weighted avg pick time = ~3.2 min**  
+→ More variation = more congestion during spikes
+
+---
+
+## 💰 Optimization 3: Cost Tradeoffs
+
+| Option              | Daily Cost | Output Impact | Notes                        |
+|---------------------|------------|----------------|------------------------------|
+| Add Picker          | $200       | +20%           | Fast but expensive           |
+| Cross-train Packer  | $0         | +12%           | Leaner, more flexible        |
+| Dynamic Labor Swap  | TBD        | +16% (est.)    | Complex + tech dependent     |
+
+📈 **Cost-per-unit comparison** (160 orders/day):  
+- New hire = $0.12/unit  
+- Cross-train = $0.00/unit
+
+---
+
+## 📈 Visual Diagrams
+
+### 🔹 Baseline
+![Baseline Flow](img/baseline.png)
+
+### 🔺 Surge Bottleneck
+![Surge Flow](img/surge_bottleneck.png)
+
+### 🟢 Optimized Flow
+![Optimized Flow](img/optimized_flow.png)
+
+---
+
+## 📊 Performance Summary
+
+| Scenario          | Orders (10 min) | Avg Cycle Time | Bottleneck | Idle Labor % |
+|-------------------|------------------|----------------|-------------|---------------|
+| Baseline          | 10               | 6 min          | Pick        | 0%            |
+| Surge, No Action  | 30               | 9.4 min        | Pick        | 38% (B, C)    |
+| Surge + CrossTrain| 30               | 7.8 min        | Balanced    | 12%           |
+
+---
+
+## 📂 Files & Downloads
+
+📊 [Download Full Excel Model](data/Fulfillment_Center_Simulation_PaulLee.xlsx)
+
+---
+
+## 🧠 Key Takeaways
+
+- Bottlenecks aren’t fixed by speed — they’re fixed by balance  
+- Cross-training is powerful in time-constrained surge conditions  
+- SKU variation and cost impact must be modeled for real decisions
+
+---
+
+## 🚀 Future Development
+
+- Gantt-based shift optimization  
+- Monte Carlo SKU-demand simulations  
+- Queue logic with WIP limits + labor stress testing
+
+---
+
+## 👋 Contact
+
+Paul Lee — Industrial Engineering @ UW  
+📧 paullee.sunghoon@gmail.com  
+🌐 [GitHub](https://github.com/paullee-ISE)  
+🔗 [LinkedIn](https://www.linkedin.com/in/paul-lee-baa127204/)
