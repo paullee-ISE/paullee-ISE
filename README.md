@@ -27,6 +27,14 @@ This portfolio is a behind-the-scenes look at how I solve messy problems, rethin
 </details>
 
 <details>
+<summary>📦 <strong> Amazon Fulfillment Center Simulation</strong></summary>  
+Modeled bottlenecks, SKU complexity, and cost tradeoffs in a simulated Amazon-style pipeline.
+
+🔗 [View Project](https://github.com/paullee-ISE/fulfillment-center-sim)
+📊 [Excel Model](https://github.com/paullee-ISE/fulfillment-center-sim/blob/main/data/Fulfillment_Center_Simulation_PaulLee.xlsx)
+</details>
+
+<details>
 <summary>🧁 <strong>Gelato Ops Optimization (Small-Batch Production)</strong></summary>
 
 **Tools:** Excel, Time Study, 5S, Process Mapping  
@@ -74,6 +82,3 @@ Seattle, WA
 
 > “Design is not just what it looks like and feels like. Design is how it works.” — *Steve Jobs*
 
----
-
-This space evolves. Every project here is chosen to prove one thing: **I engineer systems that deliver results.**
